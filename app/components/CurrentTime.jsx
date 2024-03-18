@@ -15,7 +15,7 @@ function CurrentTime() {
     };
   }, []);
 
-  return <div className='text-2xl'>{time}</div>;
+  return <div className="text-3xl">{time}</div>;
 }
 
 export default CurrentTime;
