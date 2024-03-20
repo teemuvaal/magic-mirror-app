@@ -1,6 +1,7 @@
 import CurrentTime from './components/CurrentTime';
 import StopInfo from './components/StopInfo'; // Adjust the import path as necessary
 import CurrentDate from './components/CurrentTime';
+import CurrentDayWeather from './components/CurrentWeather';
 
 export default function StopPage() {
   // My local stops here as id
@@ -13,8 +14,9 @@ export default function StopPage() {
   const id5 = 'HSL:1220404'
   return (
     <div className="ml-5 mt-5">
-      <div className="flex flex-row-reverse mr-10">
+      <div className="flex justify-between flex-row-reverse mr-10 mb-10">
       <CurrentTime />
+      <CurrentDayWeather city="Helsinki" />
       </div>
       <StopInfo id={id3}  type="bus"/>
       <StopInfo id={id}  type="bus"/>

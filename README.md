@@ -7,6 +7,7 @@ Plan is to run just this website with Raspberry Pi, LCD monitor and a "magic mir
 
 Everything is configured with hard values (ie. stops, locations). To get HSL Schedul to work, get an API access through
 [Digitransit](https://digitransit.fi/en/developers/apis/1-routing-api/1-graphiql/)
+Weather is handled with free tier from [WeatherAPI](https://www.weatherapi.com)
 
 ## To-Do
 
@@ -18,5 +19,6 @@ Everything is configured with hard values (ie. stops, locations). To get HSL Sch
 - Clock (Need to make it prettier...) (done)
         - Needs styling (thick font, large size)
 - Date (It's there, basically)
-- Weather (Maybe weather.com or something)
+- Weather (WeatherAPI.com free plan)
+        - First version done
 - Optimize for "magic mirror" environment
