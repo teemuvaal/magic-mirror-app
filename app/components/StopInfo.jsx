@@ -39,14 +39,15 @@ export default function StopInfo({ id, type }) {
 
   return (
     <div>
-      {<Image src={type === 'bus' ? "./bus.svg" : "./tram.svg"} width={40} height={40}/>}<h1>{stopData.data.stop.name}</h1>
+      <div className='flex flex-row'>
+      {<Image className='mr-3 mb-2' src={type === 'bus' ? "./bus.svg" : "./tram.svg"} width={40} height={40}/>}<h1>{stopData.data.stop.name}</h1>
+      </div>
       <div className='flex mb-4'>
       {/* Map through stoptimesWithoutPatterns to create a card for each */}
       {stopData.data.stop.stoptimesWithoutPatterns.map((time, index) => (
-        <section key={index} className='border-black border w-1/2 mr-5 shadow-lg rounded-lg'>
-          <div className='p-2 rounded-t-lg bg-blue-400'>Destination: {time.headsign}</div>
+        <section key={index} className='border-white border-4 w-1/2 mr-5 shadow-lg rounded-lg'>
+          <div className='text-pretty p-2 rounded-t-lg bg-zinc-900'>Destination: {time.headsign}</div>
           <div className='p-2'>Arrives in: {calculateWaitingTime(time.realtimeArrival, time.serviceDay)}</div>
-          <div className='p-2 text-sm'>Scheduled Arrival: {convertToLocaleTime(time.scheduledArrival, time.serviceDay)}</div>
           <div className='p-2 text-sm'>Realtime Arrival: {convertToLocaleTime(time.realtimeArrival, time.serviceDay)}</div>
         </section>
       ))}
