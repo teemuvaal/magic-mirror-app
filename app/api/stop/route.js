@@ -5,6 +5,11 @@ export async function GET(request) {
     {
       stop(id: "${id}") {
         name
+        patterns {
+          route {
+            shortName
+          }
+        }
         stoptimesWithoutPatterns {
           scheduledArrival
           realtimeArrival
