@@ -2,15 +2,15 @@
 
 export default function CurrentDate() {
     const now = new Date();
-    const currentTime = now.toLocaleTimeString('en-US', {
-        hour12: true,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
+    const currentDate = now.toLocaleDateString('fi-FI', {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
     });
     return (
         <div className='text-2xl font-black'>
-            {currentTime}
+            {currentDate}
         </div>
     )
 }

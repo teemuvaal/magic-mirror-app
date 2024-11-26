@@ -1,21 +1,16 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
-
-function CurrentTime() {
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
-
-  useEffect(() => {
-    const timerId = setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
-    }, 1000);
-
-    return () => {
-      clearInterval(timerId);
-    };
-  }, []);
-
-  return <div className="text-4xl font-extrabold">{time}</div>;
+export default function CurrentDate() {
+    const now = new Date();
+    const currentTime = now.toLocaleTimeString('en-US', {
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+    return (
+        <div className='text-2xl font-black'>
+            {currentTime}
+        </div>
+    )
 }
-
-export default CurrentTime;
