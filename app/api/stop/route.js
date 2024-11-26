@@ -21,6 +21,11 @@ export async function GET(request) {
           realtimeState
           serviceDay
           headsign
+          trip {
+            route {
+              shortName
+            }
+          }
         }
       }
     }`;
