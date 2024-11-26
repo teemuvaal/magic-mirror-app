@@ -9,7 +9,6 @@ export default function StopPage() {
   // Type will select correct icon to be displayed. If no type will default to "tram"
   const id = 'HSL:1220127'
   const id2 = 'HSL:1220105'
-  const id3 = 'HSL:1210163'
   const id4 = 'HSL:1220403'
   const id5 = 'HSL:1220404'
   return (
@@ -19,7 +18,6 @@ export default function StopPage() {
       <CurrentDayWeather city="Helsinki" />
       <CurrentDate />
       </div>
-      <StopInfo id={id3}  type="bus"/>
       <StopInfo id={id}  type="bus"/>
       <StopInfo id={id2} type="bus" />
       <StopInfo id={id4} />
