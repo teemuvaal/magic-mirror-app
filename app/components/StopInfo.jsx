@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { getStopData } from '../actions';
 
 export default function StopInfo({ id, type }) {
   const [stopData, setStopData] = useState(null);
@@ -10,8 +11,7 @@ export default function StopInfo({ id, type }) {
     if (!id) return;
   
     async function fetchData() {
-      const response = await fetch(`/api/stop?id=${id}`);
-      const data = await response.json();
+      const data = await getStopData(id);
       setStopData(data);
       setLoading(false);
     }

@@ -3,8 +3,7 @@
 export async function getMessage() {
     try {
         const res = await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_API_KEY}/getUpdates`, {
-            cache: 'no-store', // Disable caching to always get fresh data
-            next: { revalidate: 0 } // Disable Next.js cache
+            next: { revalidate: 0 }
         });
         
         if (!res.ok) {
@@ -13,9 +12,7 @@ export async function getMessage() {
 
         const data = await res.json();
         
-        // Return all messages from the result array
         if (data.ok && data.result && Array.isArray(data.result)) {
-            // Sort messages by date in descending order (newest first)
             const sortedMessages = data.result.sort((a, b) => b.message.date - a.message.date);
             return sortedMessages;
         }
@@ -24,5 +21,58 @@ export async function getMessage() {
     } catch (error) {
         console.error('Error fetching messages:', error);
         return [];
+    }
+}
+
+export async function getStopData(id) {
+    try {
+        const query = `
+        {
+          stop(id: "${id}") {
+            name
+            patterns {
+              route {
+                shortName
+              }
+            }
+            stoptimesWithoutPatterns {
+              scheduledArrival
+              realtimeArrival
+              arrivalDelay
+              scheduledDeparture
+              realtimeDeparture
+              departureDelay
+              realtime
+              realtimeState
+              serviceDay
+              headsign
+              trip {
+                route {
+                  shortName
+                }
+              }
+            }
+          }
+        }`;
+
+        const res = await fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'digitransit-subscription-key': process.env.DATA_API_KEY,
+            },
+            body: JSON.stringify({ query }),
+            next: { revalidate: 0 }
+        });
+
+        if (!res.ok) {
+            throw new Error('Failed to fetch stop data');
+        }
+
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching stop data:', error);
+        return null;
     }
 }
