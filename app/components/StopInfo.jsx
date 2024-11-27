@@ -41,7 +41,7 @@ export default function StopInfo({ id, type }) {
   return (
     <div>
       <div className='flex flex-row'>
-        {<Image className='mr-3 mb-2' src={type === 'bus' ? "./bus.svg" : "./tram.svg"} width={40} height={40}/>}
+        {<Image className='mr-3 mb-2' src={type === 'bus' ? "./bus.svg" : "./tram.svg"} width={40} height={40} alt="icon"/>}
         <h1>{stopData.data.stop.name}</h1>
       </div>
       <div className='flex mb-4'>

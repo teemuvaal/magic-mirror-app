@@ -2,6 +2,7 @@ import CurrentTime from './components/CurrentTime';
 import StopInfo from './components/StopInfo'; // Adjust the import path as necessary
 import CurrentDate from './components/CurrentDate';
 import CurrentDayWeather from './components/CurrentWeather';
+import MessageBox from './components/MessageBox';
 
 export default function StopPage() {
   // My local stops here as id
@@ -18,10 +19,15 @@ export default function StopPage() {
       <CurrentDayWeather city="Helsinki" />
       <CurrentDate />
       </div>
+      <div className='my-5'>
+      <MessageBox />
+      </div>
+      <div className='flex flex-col gap-5'>
       <StopInfo id={id}  type="bus"/>
       <StopInfo id={id2} type="bus" />
       <StopInfo id={id4} />
       <StopInfo id={id5} />
+      </div>
     </div>
   );
 }
