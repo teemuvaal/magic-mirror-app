@@ -3,9 +3,13 @@
 // TO-DO: Add more types to support ferries and trains
 // TO-DO: Add support for live citybike status for nearby stations
 // Get the stop info from https://digitransit.fi/en/developers/apis/1-routing-api/stops/ , id is required to get info
-export const stops = [
-    {id: 'HSL:1220127', type: 'bus'},
-    {id: 'HSL:1220105', type: 'bus'},
-    {id: 'HSL:1220403', type: 'tram'},
-    {id: 'HSL:1220404', type: 'tram'}
-]
+export const config = {
+    stops: [
+        {id: 'HSL:1220127', type: 'bus'},
+        {id: 'HSL:1220105', type: 'bus'},
+        {id: 'HSL:1220403', type: 'tram'},
+        {id: 'HSL:1220404', type: 'tram'}
+    ]
+}
+
+export default config
