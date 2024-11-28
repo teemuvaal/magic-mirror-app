@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { getStopData } from '../actions';
+import { settings } from '../../config';
 
 export default function StopInfo({ id, type }) {
   const [stopData, setStopData] = useState(null);
@@ -27,7 +28,7 @@ export default function StopInfo({ id, type }) {
     const arrivalTimeInSeconds = serviceDay + realtimeArrival;
     const waitingTimeInSeconds = arrivalTimeInSeconds - currentTime;
     const waitingTimeInMinutes = Math.round(waitingTimeInSeconds / 60);
-    return waitingTimeInMinutes > 0 ? `${waitingTimeInMinutes} minutes` : 'Arriving';
+    return waitingTimeInMinutes;
   };
 
   const convertToLocaleTime = (unixTimestamp, serviceDay) => {
@@ -38,6 +39,14 @@ export default function StopInfo({ id, type }) {
   if (loading) return <p>Loading...</p>;
   if (!stopData) return <p>No data found.</p>;
 
+  // Filter out arrivals that are too soon
+  const filteredStopTimes = stopData.data.stop.stoptimesWithoutPatterns.filter(time => {
+    const waitingTime = calculateWaitingTime(time.realtimeArrival, time.serviceDay);
+    return waitingTime >= settings.minArrivalMinutes;
+  });
+
+  if (filteredStopTimes.length === 0) return null;
+
   return (
     <div>
       <div className='flex flex-row'>
@@ -45,13 +54,13 @@ export default function StopInfo({ id, type }) {
         <h1>{stopData.data.stop.name}</h1>
       </div>
       <div className='flex mb-4'>
-        {stopData.data.stop.stoptimesWithoutPatterns.map((time, index) => (
+        {filteredStopTimes.map((time, index) => (
           <section key={index} className='w-1/2 mr-5'>
             <div className='text-pretty p-2 rounded-t-lg bg-zinc-900 border-b-2 border-white font-bold'>
               <span className="mr-2 bg-white text-black px-2 py-1 rounded">{time.trip.route.shortName}</span>
               {time.headsign}
             </div>
-            <div className='p-2'>Arrives in: {calculateWaitingTime(time.realtimeArrival, time.serviceDay)}</div>
+            <div className='p-2'>Arrives in: {calculateWaitingTime(time.realtimeArrival, time.serviceDay)} minutes</div>
             <div className='p-2 text-sm'>Arrival: {convertToLocaleTime(time.realtimeArrival, time.serviceDay)}</div>
           </section>
         ))}

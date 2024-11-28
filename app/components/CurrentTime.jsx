@@ -20,7 +20,7 @@ export default function CurrentTime() {
     }, []);
 
     return (
-        <div className='text-2xl font-black'>
+        <div className='text-4xl font-black'>
             {time}
         </div>
     )
