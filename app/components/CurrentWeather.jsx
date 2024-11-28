@@ -16,12 +16,19 @@ export default function CurrentDayWeather ({city}) {
         }
 
         fetchData();
+        
+        // Fetch new data every 15 minutes (900000 milliseconds)
+        const interval = setInterval(fetchData, 900000);
+        
+        // Cleanup interval on unmount
+        return () => clearInterval(interval);
     },[city]);
+    
     if (loading) return <p>Loading...</p>
     if (!currentWeather) return <p>Error: No data found.</p>
     return (
         <div>
-        <h1>
+        <h1 className="text-2xl font-bold">
             {currentWeather.location.name}
         </h1>
         <h2>

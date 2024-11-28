@@ -24,15 +24,14 @@ export default function MessageBox() {
     if (!latestMessage) {
         return (
             <div className='flex flex-col items-center justify-center border-2 border-white rounded-lg p-5 w-1/3'>
-                <h1 className='text-2xl font-bold'>Message</h1>
                 <p>No message available</p>
             </div>
         );
     }
 
     return (
-        <div className='flex flex-col items-center justify-center border-2 border-white rounded-lg p-5 w-1/3'>
-            <h1 className='text-2xl font-bold mb-4'>Message</h1>
+        <div className='flex flex-col border-2 border-white rounded-lg p-5 w-1/3'>
+            <h1 className='text-2xl font-bold mb-4'>Note:</h1>
             <div className='w-full'>
                 <div className='bg-zinc-900 p-3 rounded-lg'>
                     <p className='text-sm text-gray-400'>
