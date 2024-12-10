@@ -33,7 +33,11 @@ export default function StopInfo({ id, type }) {
 
   const convertToLocaleTime = (unixTimestamp, serviceDay) => {
     const fullTimestamp = new Date((serviceDay + unixTimestamp) * 1000);
-    return fullTimestamp.toLocaleTimeString();
+    return fullTimestamp.toLocaleTimeString(settings.locale, {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    });
   };
 
   if (loading) return <p>Loading...</p>;

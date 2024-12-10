@@ -1,8 +1,9 @@
 'use client'
 import { useState, useEffect } from 'react';
+import { settings } from '../../config';
 
 export default function CurrentTime() {
-    const [time, setTime] = useState(new Date().toLocaleTimeString('fi-FI', {
+    const [time, setTime] = useState(new Date().toLocaleTimeString(settings.locale, {
         hour: '2-digit',
         minute: '2-digit',
         hour12: false
@@ -10,7 +11,7 @@ export default function CurrentTime() {
 
     useEffect(() => {
         const timerId = setInterval(() => {
-            setTime(new Date().toLocaleTimeString('fi-FI', {
+            setTime(new Date().toLocaleTimeString(settings.locale, {
                 hour: '2-digit', 
                 minute: '2-digit',
                 hour12: false

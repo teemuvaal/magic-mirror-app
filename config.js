@@ -14,7 +14,8 @@ export const settings = {
         {id: 'HSL:1220404', type: 'tram'}
     ],
     location: 'Helsinki',
-    minArrivalMinutes: 5  // Minimum arrival time in minutes to display
+    minArrivalMinutes: 5,  // Minimum arrival time in minutes to display
+    locale: 'fi-FI'
 }
 
 export default settings
