@@ -9,8 +9,8 @@
 export const settings = {
     stops: [
         {id: 'HSL:1220127', type: 'bus'},
-        {id: 'HSL:1220105', type: 'bus'},
-        {id: 'HSL:1220403', type: 'tram'},
+        {id: 'HSL:1210202', type: 'tram'},
+        {id: 'HSL:1220205', type: 'bus'},
         {id: 'HSL:1220404', type: 'tram'}
     ],
     location: 'Helsinki',
