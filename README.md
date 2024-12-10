@@ -10,6 +10,8 @@ npm install
 npm run dev
 ```
 
+Check config.js for setting up stops and location.
+
 Setup .env with your Telegram bot token and HSL API key:
 DATA_API_KEY="" // Get from HSL
 WEATHER_API_KEY="" // Get from WeatherAPI

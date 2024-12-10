@@ -3,7 +3,7 @@ import StopInfo from './components/StopInfo'; // Adjust the import path as neces
 import CurrentDate from './components/CurrentDate';
 import CurrentDayWeather from './components/CurrentWeather';
 import MessageBox from './components/MessageBox'
-import config from '../magicmirror.config.js'
+import settings from '../config.js'
 
 export default function StopPage() {
 
@@ -11,7 +11,7 @@ export default function StopPage() {
     <div className="ml-5 mt-5">
       <div className="flex justify-between flex-row-reverse mr-10 mb-2">
       <CurrentTime />
-      <CurrentDayWeather city="Helsinki" />
+      <CurrentDayWeather city={settings.location} />
       <CurrentDate />
       </div>
       <div className='my-5'>
@@ -20,8 +20,8 @@ export default function StopPage() {
       </div>
       {/* Stops are defined in magicmirror.config.js */}
       <div className='flex flex-col gap-5'>
-        {config.stops.map((stop) => (
-          <StopInfo id={stop.id} type={stop.type} />
+        {settings.stops.map((stop, index) => (
+          <StopInfo key={index} id={stop.id} type={stop.type} />
         ))}
       </div>
     </div>
