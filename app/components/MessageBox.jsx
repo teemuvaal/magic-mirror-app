@@ -36,7 +36,7 @@ export default function MessageBox() {
                     <p className='text-sm text-gray-400'>
                         {new Date(latestMessage.message.date * 1000).toLocaleString()}
                     </p>
-                    <p className='mt-1 text-2xl'>{latestMessage.message.text}</p>
+                    <p className='mt-1 text-2xl font-bold'>{latestMessage.message.text}</p>
                 </div>
             </div>
         </div>
