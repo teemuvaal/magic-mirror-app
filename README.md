@@ -27,11 +27,8 @@ Now also supports Telegram messages through [Telegram Bot API](https://core.tele
 
 ## To-Do
 
-- HSL Schedule for nearby stops (done)
-- Clock (Need to make it prettier...) (done)
-        - Needs styling (thick font, large size)
-- Date (It's there, basically)
-- Weather (WeatherAPI.com free plan)
-        - First version done
-        - Make it prettier
-- Optimize for "magic mirror" environment
+- Maybe an admin panel to config the app insted of config.js
+
+- Weather:
+  - Add icons
+  - Add more available information

@@ -9,12 +9,12 @@
 export const settings = {
     stops: [
         {id: 'HSL:1220127', type: 'bus'},
-        {id: 'HSL:1210202', type: 'tram'},
-        {id: 'HSL:1220205', type: 'bus'},
+        {id: 'HSL:1210403', type: 'tram'},
+        {id: 'HSL:1210404', type: 'tram'},
         {id: 'HSL:1220404', type: 'tram'}
     ],
     location: 'Helsinki',
-    minArrivalMinutes: 5,  // Minimum arrival time in minutes to display
+    minArrivalMinutes: 4,  // Minimum arrival time in minutes to display
     locale: 'fi-FI'
 }
 
