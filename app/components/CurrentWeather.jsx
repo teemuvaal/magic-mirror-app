@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from "react"
+import { ThermometerSnowflake, ThermometerSun } from "lucide-react"
 
 export default function CurrentDayWeather ({city}) {
     const [currentWeather,setCurrentWeather] = useState(null);
