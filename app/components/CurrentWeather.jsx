@@ -32,12 +32,12 @@ export default function CurrentDayWeather ({city}) {
         <h1 className="text-2xl font-bold">
             {currentWeather.location.name}
         </h1>
-        <h2>
-            Temp: {currentWeather.current.temp_c}
-        </h2>
-        <h2>
-            Feels like: {currentWeather.current.feelslike_c}
-        </h2>
+        <div className="flex flex-row gap-4">
+            Temp: {currentWeather.current.temp_c < 1 ? <ThermometerSnowflake /> : <ThermometerSun />} {currentWeather.current.temp_c}
+        </div>
+        <div className="flex flex-row gap-4">
+            Feels like: {currentWeather.current.temp_c < 1 ? <ThermometerSnowflake /> : <ThermometerSun />}{currentWeather.current.feelslike_c}
+        </div>
         </div>
     )
 }

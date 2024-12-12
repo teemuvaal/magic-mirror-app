@@ -30,14 +30,13 @@ export default function MessageBox() {
     }
 
     return (
-        <div className='flex flex-col border-2 border-white rounded-lg p-5 w-1/3'>
-            <h1 className='text-2xl font-bold mb-4'>Note:</h1>
+        <div className='flex flex-col p-5 w-full'>
             <div className='w-full'>
                 <div className='bg-zinc-900 p-3 rounded-lg'>
                     <p className='text-sm text-gray-400'>
                         {new Date(latestMessage.message.date * 1000).toLocaleString()}
                     </p>
-                    <p className='mt-1'>{latestMessage.message.text}</p>
+                    <p className='mt-1 text-2xl'>{latestMessage.message.text}</p>
                 </div>
             </div>
         </div>
